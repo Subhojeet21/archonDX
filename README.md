@@ -84,7 +84,7 @@ ArchonDX runs locally via Claude Code CLI and the official VS Code extension. In
 curl -fsSL https://raw.githubusercontent.com/subhojeet21/archonDX/main/install.sh | bash
 ```
 
-> **Note:** The installer deploys the compiled, tamper-resistant engine definition directly to \`~/.claude/commands/archon.md\`. No repository files or build dependencies are added to your target projects.
+> **Note:** The installer deploys the compiled, tamper-resistant engine definition directly to the user profile directory. No repository files or build dependencies are added to your target projects.
 
 ---
 
