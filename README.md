@@ -5,38 +5,86 @@
 ![License](https://img.shields.io/badge/License-MIT-blue.svg)
 ![Version](https://img.shields.io/badge/Version-1.0.0-emerald.svg)
 ![Runtime](https://img.shields.io/badge/Platform-Claude_Code_CLI_%7C_VS_Code-purple.svg)
-![Governance](https://img.shields.io/badge/Governance-Governor_Boundaries_%7C_FLS_%7C_Synthetic_Code-critical.svg)
+[![Audit Scope](https://img.shields.io/badge/Audit_Scope-Governor_Limits_%7C_FLS_%7C_AI_Integrity-critical.svg)]()
 
 ---
 
-## 🏛️ Executive Summary
-
-Modern enterprise engineering teams face a growing dilemma: **AI coding assistants increase raw velocity, but disproportionately increase the architectural review burden.** 
+Modern enterprise engineering teams face a growing dilemma: **AI coding assistants increase pull request velocity, but disproportionately increase the architectural review burden.** 
 
 Senior architects spend up to 30% of their sprints checking for subtle multi-tenant issues like distributed $N+1$ SOQL queries, unasserted "coverage-padding" test classes, and data leakage across transaction boundaries.
 
-**ArchonDX** is an autonomous governance engine created by **Subhojeet Ghosh**. Operating directly within Claude Code (CLI and VS Code), ArchonDX performs semantic, cross-file architectural audits on Apex and Lightning Web Components before code ever reaches a pull request.
+Generic LLM generators frequently produce syntactically valid code that fails catastrophically in multi-tenant environments:
+* **Distributed $N+1$ Leaks:** SOQL/DML queries nested three classes down within caller loops.
+* **Security Regressions:** Missing \`WITH USER_MODE\`, bypassing Field-Level Security (FLS) or tenant sharing models.
+* **Synthetic "Coverage Padding":** AI-generated unit tests with zero assertion logic (\`System.assert(true)\`), written purely to bypass the 75% deployment threshold.
+* **LWC Resource Leaks:** Unsubscribed Lightning Message Service (LMS) tokens and lingering DOM listeners causing browser memory decay.
+
+**ArchonDX** is an autonomous governance engine. Operating directly within Claude Code (CLI and VS Code), ArchonDX performs semantic, cross-file architectural audits on Apex and Lightning Web Components before code ever reaches a pull request.
+
 
 ---
 
-## 🚀 Key Architectural Capabilities
+## 🔬 Architecture: How ArchonDX Evaluates Beyond Static Linters
 
-| Inspection Area | Traditional Linters (PMD / ESLint) | ArchonDX Governance Engine |
-| :--- | :--- | :--- |
-| **Governor Limit Defense** | Flags direct SOQL inside immediate loops. | Detects **distributed $N+1$ calls** across trigger handlers, services, and selector tiers. |
-| **Data Access & Security** | Checks basic rule files. | Enforces **explicit sharing** and runtime `WITH USER_MODE` / `Security.stripInaccessible()` integrity. |
-| **AI Slop & Coverage Padding** | Counts line coverage (passes hollow tests). | Flags **assert-less unit tests**, verifies 200+ record bulkification, and catches hallucinated API methods. |
-| **LWC Lifecycle Hygiene** | Evaluates local syntax only. | Verifies reactive memory cleanup in `disconnectedCallback()` and audits wire caching constraints. |
+Traditional linters (PMD, ESLint, SonarQube) inspect isolated Abstract Syntax Trees (ASTs). They cannot detect cross-file side effects or understand architectural intent.
+
+```
+                    ┌───────────────────────────────────┐
+                    │ Local Git Working Tree / PR Diff  │
+                    └─────────────────┬─────────────────┘
+                                      │
+                                      ▼
+                    ┌───────────────────────────────────┐
+                    │ ArchonDX Workspace Hydrator       │
+                    │ - Filter apex and lwc components  │
+                    │ - Inspects Caller Call-Stacks     │
+                    └─────────────────┬─────────────────┘
+                                      │
+            ┌─────────────────────────┼─────────────────────────┐
+            ▼                         ▼                         ▼
+┌───────────────────────┐ ┌───────────────────────┐ ┌───────────────────────┐
+│ Lens A: Governor &    │ │ Lens B: Data Access   │ │ Lens C: Synthetic     │
+│ Scalability Boundary  │ │ & Platform Security   │ │ Code & Test Integrity │
+│ - Distributed N+1     │ │ - WITH USER_MODE      │ │ - Assert-less tests   │
+│ - Queueable Chaining  │ │ - Explicit Sharing    │ │ - 200+ record bulk    │
+│ - Heap & Cursor Guard │ │ - Dynamic SOQL binds  │ │ - Hallucinated APIs   │
+└───────────┬───────────┘ └───────────┬───────────┘ └───────────┬───────────┘
+            │                         │                         │
+            └─────────────────────────┼─────────────────────────┘
+                                      ▼
+                    ┌───────────────────────────────────┐
+                    │ Deterministic Version Pre-Flight  │
+                    │ (GitHub API Release Check)        │
+                    └─────────────────┬─────────────────┘
+                                      │
+                                      ▼
+                    ┌───────────────────────────────────┐
+                    │ Executive Architectural Brief &   │
+                    │ 1-Click Code Replacement Patches  │
+                    └───────────────────────────────────┘
+```
+
+### Architectural Comparison Matrix
+
+| Inspection Dimension | Static Analyzers (PMD / ESLint) | Standard LLM Code Reviews | ArchonDX Governance Engine |
+| :--- | :--- | :--- | :--- |
+| **Distributed $N+1$ Traversal** | ❌ Only flags immediate loop bodies. | ⚠️ Noisy; hallucinates syntax rules. | ✅ **Traces cross-class method invocations** from handlers to selectors. |
+| **Data Security & FLS** | ⚠️ Relies on basic regex/rule files. | ⚠️ Misses enterprise user modes. | ✅ **Enforces \`WITH USER_MODE\`**, \`stripInaccessible()\`, and bind vars. |
+| **Test Suite Validity** | ❌ Passes any test reaching 75% coverage. | ⚠️ Generates coverage padding. | ✅ **Detects hollow assert-less tests** and verifies 200+ record bulk bounds. |
+| **LWC Lifecycle Hygiene** | ⚠️ Checks local variable state only. | ⚠️ Inconsistent Locker/LWS context. | ✅ **Audits LMS cleanup in \`disconnectedCallback()\`** and wire caching. |
+| **Workspace Footprint** | Heavy config setup (\`ruleset.xml\`). | Requires custom API keys & billing. | ✅ **Zero-footprint**, runs natively via enterprise Claude sessions. |
 
 ---
 
-## ⚡ 1-Line Quick Installation
+## ⚡ Quick Installation
 
-To install ArchonDX globally on your machine (works across all Salesforce repositories):
+ArchonDX runs locally via Claude Code CLI and the official VS Code extension. Install it globally across all your Salesforce repositories in one command:
 
 ```bash
-curl -fsSL https://raw.githubusercontent.com/Subhojeet21/archonDX-public/main/install.sh | bash
+curl -fsSL https://raw.githubusercontent.com/subhojeet21/archonDX/main/install.sh | bash
 ```
+
+> **Note:** The installer deploys the compiled, tamper-resistant engine definition directly to \`~/.claude/commands/archon.md\`. No repository files or build dependencies are added to your target projects.
 
 ---
 
@@ -44,7 +92,8 @@ curl -fsSL https://raw.githubusercontent.com/Subhojeet21/archonDX-public/main/in
 
 Navigate into **any** Salesforce DX repository on your machine:
 
-### 1. In Claude Code CLI (Terminal)
+### Runtime Target
+#### 1. In Claude Code CLI (Terminal)
 ```bash
 claude
 /archon
@@ -55,13 +104,31 @@ To compare against your team's integration branch before raising a PR:
 /archon origin/main
 ```
 
-### 2. In VS Code (Claude Code Extension)
+#### 2. In VS Code (Claude Code Extension)
 1. Open any Salesforce DX workspace in VS Code.
 2. In the Claude chat sidebar, type: `/archon`
 3. Review the generated executive table and 1-click suggested refactorings.
+
+### When to use?
+#### 1. Audit Working Tree Changes (Pre-Commit)
+Inspect uncommitted staged and unstaged files:
+```text
+/archon
+```
+
+#### 2. Audit Against Trunk Branch (Pre-PR Gate)
+Evaluate your feature branch diff against \`main\` before opening a pull request:
+```text
+/archon origin/main
+```
+
+#### 3. Review Staged Commits Only
+```text
+/archon --staged
+```
 
 ---
 
 ## 📄 License & Attribution
 
-Designed, architected, and innovated by **Subhojeet Ghosh**. Distributed under the MIT License with mandatory author attribution notices preserved in all build artifacts and execution headers.
+[MIT License](LICENSE) © Subhojeet Ghosh
