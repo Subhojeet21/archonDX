@@ -1,15 +1,17 @@
 #!/usr/bin/env bash
 set -eo pipefail
 
-ARCHON_BANNER="
-========================================================================
-   ⚡ ArchonDX: Enterprise Architecture & AI-Code Governance Engine
-   Designed & Architected by Subhojeet Ghosh (Lead Architect)
-   Version: 1.0.0
-========================================================================
-"
+# ANSI Color Palette
+CLR_RESET="\033[0m"
+CLR_BOLD="\033[1m"
+CLR_DIM="\033[2m"
+CLR_CYAN="\033[38;5;45m"
+CLR_AMBER="\033[38;5;214m"
+CLR_PURPLE="\033[38;5;141m"
+CLR_EMERALD="\033[38;5;48m"
+CLR_GRAY="\033[38;5;244m"
+CLR_WHITE="\033[38;5;255m"
 
-echo "$ARCHON_BANNER"
 
 USER_HOME="${HOME:-$USERPROFILE}"
 TARGET_DIR="${USER_HOME}/.claude/commands"
@@ -20,6 +22,23 @@ if [ "$1" == "--uninstall" ]; then
   echo "✔ ArchonDX uninstalled successfully."
   exit 0
 fi
+
+# Modern Banner Display
+echo -e "${CLR_AMBER}
+    █████╗ ██████╗  ██████╗██╗  ██╗ ██████╗ ███╗   ██╗██████╗ ██╗  ██╗
+   ██╔══██╗██╔══██╗██╔════╝██║  ██║██╔═══██╗████╗  ██║██╔══██╗╚██╗██╔╝
+   ███████║██████╔╝██║     ███████║██║   ██║██╔██╗ ██║██║  ██║ ╚███╔╝ 
+   ██╔══██║██╔══██╗██║     ██╔══██║██║   ██║██║╚██╗██║██║  ██║ ██╔██╗ 
+   ██║  ██║██║  ██║╚██████╗██║  ██║╚██████╔╝██║ ╚████║██████╔╝██╔╝ ██╗
+   ╚═╝  ╚═╝╚═╝  ╚═╝ ╚═════╝╚═╝  ╚═╝ ╚═════╝ ╚═╝  ╚═══╝╚═════╝ ╚═╝  ╚═╝${CLR_RESET}
+                                                ${CLR_DIM}v${VERSION}${CLR_RESET}
+
+  ${CLR_CYAN}◆${CLR_RESET}  ${CLR_BOLD}${CLR_WHITE}Enterprise Salesforce Architecture & AI Governance Engine${CLR_RESET}
+  ${CLR_GRAY}│${CLR_RESET}
+  ${CLR_GRAY}├─${CLR_RESET} ${CLR_DIM}Innovator & Lead Architect :${CLR_RESET} ${CLR_BOLD}${CLR_WHITE}Subhojeet Ghosh${CLR_RESET}
+  ${CLR_GRAY}├─${CLR_RESET} ${CLR_DIM}Runtime Target             :${CLR_RESET} ${CLR_PURPLE}Claude Code CLI & VS Code${CLR_RESET}
+  ${CLR_GRAY}└─${CLR_RESET} ${CLR_DIM}Audit Core                 :${CLR_RESET} ${CLR_EMERALD}Governor Bounds • FLS • AI Slop Defense${CLR_RESET}
+"
 
 echo "⚡ Installing / Updating ArchonDX to v1.0.0..."
 mkdir -p "${TARGET_DIR}"
