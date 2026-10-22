@@ -6,6 +6,7 @@
 ![Version](https://img.shields.io/badge/Version-1.0.1-emerald.svg)
 ![Runtime](https://img.shields.io/badge/Platform-Claude_Code_CLI_%7C_VS_Code-purple.svg)
 [![Audit Scope](https://img.shields.io/badge/Audit_Scope-Governor_Limits_%7C_FLS_%7C_AI_Integrity-critical.svg)]()
+[![Installs](https://img.shields.io/github/downloads/Subhojeet21/archonDX/total?color=blue&label=Installs&logo=github)](https://github.com/Subhojeet21/archonDX/releases)
 
 ---
 
@@ -81,7 +82,7 @@ Traditional linters (PMD, ESLint, SonarQube) inspect isolated Abstract Syntax Tr
 ArchonDX runs locally via Claude Code CLI and the official VS Code extension. Install it globally across all your Salesforce repositories in one command:
 
 ```bash
-curl -fsSL https://raw.githubusercontent.com/subhojeet21/archonDX/main/install.sh | bash
+curl -fsSL https://github.com/Subhojeet21/archonDX/releases/latest/download/install.sh | bash
 ```
 
 > **Note:** The installer deploys the compiled, tamper-resistant engine definition directly to the user profile directory. No repository files or build dependencies are added to your target projects.
