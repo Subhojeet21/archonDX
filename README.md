@@ -1,6 +1,5 @@
 # ArchonDX (⚡)
-> **Autonomous Multi-Tenant Architecture & AI-Code Governance Engine for Salesforce DX**  
-> **Innovator & Lead Architect:** Subhojeet Ghosh (Principal Software Engineer & Salesforce Architect)
+> **Autonomous Multi-Tenant Architecture & AI-Code Governance Engine for Salesforce DX projects**  
 
 ![License](https://img.shields.io/badge/License-MIT-blue.svg)
 ![Version](https://img.shields.io/badge/Version-1.0.3-emerald.svg)
