@@ -1,0 +1,49 @@
+name: Update Adoption Badges
+
+on:
+  schedule:
+    - cron: '*/30 * * * *'  # Runs every 30 minutes
+  workflow_dispatch:        # Can be triggered manually anytime
+
+jobs:
+  update-badges:
+    runs-on: ubuntu-latest
+    permissions:
+      contents: write
+    steps:
+      - name: Calculate Release Totals
+        run: |
+          RELEASES_JSON=$(curl -fsSL https://api.github.com/repos/Subhojeet21/archonDX/releases)
+
+          TOTAL_INSTALLS=$(echo "$RELEASES_JSON" | jq '[.[].assets[] | select(.name == "install.sh") | .download_count] | add // 0')
+          TOTAL_REVIEWS=$(echo "$RELEASES_JSON" | jq '[.[].assets[] | select(.name == "version.txt") | .download_count] | add // 0')
+
+          mkdir -p badges
+
+          # Endpoint JSON format for Shields.io
+          cat <<EOF > badges/installs.json
+          {
+            "schemaVersion": 1,
+            "label": "Installs",
+            "message": "${TOTAL_INSTALLS}",
+            "color": "blue",
+            "namedLogo": "github"
+          }
+          EOF
+
+          cat <<EOF > badges/reviews.json
+          {
+            "schemaVersion": 1,
+            "label": "Reviews Run",
+            "message": "${TOTAL_REVIEWS}",
+            "color": "purple",
+            "namedLogo": "claude"
+          }
+          EOF
+
+      - name: Commit & Deploy to Badges Branch
+        uses: peaceiris/actions-gh-pages@v4
+        with:
+          github_token: ${{ secrets.GITHUB_TOKEN }}
+          publish_dir: ./badges
+          publish_branch: badges

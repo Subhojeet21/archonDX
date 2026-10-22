@@ -8,6 +8,8 @@
 [![Installs](https://img.shields.io/github/downloads/Subhojeet21/archonDX/total?color=blue&label=Installs&logo=github)](https://github.com/Subhojeet21/archonDX/releases)
 [![Installs](https://img.shields.io/github/downloads/Subhojeet21/archonDX/install.sh?label=Installs&color=blue&logo=github)](https://github.com/Subhojeet21/archonDX/releases)
 [![Reviews Run](https://img.shields.io/github/downloads/Subhojeet21/archonDX/version.txt?label=Reviews%20Run&color=purple&logo=claude)](https://github.com/Subhojeet21/archonDX/releases)
+[![Installs](https://img.shields.io/endpoint?url=https%3A%2F%2Fraw.githubusercontent.com%2FSubhojeet21%2FarchonDX%2Fbadges%2Finstalls.json)](https://github.com/Subhojeet21/archonDX/releases)
+[![Reviews Run](https://img.shields.io/endpoint?url=https%3A%2F%2Fraw.githubusercontent.com%2FSubhojeet21%2FarchonDX%2Fbadges%2Freviews.json)](https://github.com/Subhojeet21/archonDX/releases)
 
 
 ---
