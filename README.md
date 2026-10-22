@@ -3,7 +3,7 @@
 > **Innovator & Lead Architect:** Subhojeet Ghosh (Principal Software Engineer & Salesforce Architect)
 
 ![License](https://img.shields.io/badge/License-MIT-blue.svg)
-![Version](https://img.shields.io/badge/Version-1.0.0-emerald.svg)
+![Version](https://img.shields.io/badge/Version-1.0.1-emerald.svg)
 ![Runtime](https://img.shields.io/badge/Platform-Claude_Code_CLI_%7C_VS_Code-purple.svg)
 [![Audit Scope](https://img.shields.io/badge/Audit_Scope-Governor_Limits_%7C_FLS_%7C_AI_Integrity-critical.svg)]()
 
