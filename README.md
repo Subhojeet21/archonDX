@@ -9,18 +9,24 @@
 
 ---
 
-Modern enterprise engineering teams face a growing dilemma: **AI coding assistants increase pull request velocity, but disproportionately increase the architectural review burden.** 
+## 💡 What is ArchonDX?
 
-Senior architects spend up to 30% of their sprints checking for subtle multi-tenant issues like distributed $N+1$ SOQL queries, unasserted "coverage-padding" test classes, and data leakage across transaction boundaries.
+**ArchonDX** is an autonomous architectural review engine designed specifically for enterprise **Salesforce DX** environments. Embedded natively into your local developer workflow via **Claude Code (CLI and VS Code extension**, it acts as a virtual core reviewer that audits staged diffs and pull requests before code is committed or merged.
 
-Generic LLM generators frequently produce syntactically valid code that fails catastrophically in multi-tenant environments:
-* **Distributed $N+1$ Leaks:** SOQL/DML queries nested three classes down within caller loops.
+Unlike traditional static linters (such as PMD or ESLint) that only inspect single files in isolation, ArchonDX evaluates **cross-class call graphs**, **runtime governor boundaries**, and **data access permissions** across your entire local codebase.
+
+---
+
+## 🎯 Why Use ArchonDX? (The Business & Engineering Problem)
+
+With generative AI assistants accelerating code generation, pull request velocity has multiplied—but so have subtle architectural regressions and review burden. AI-generated code often looks clean on the surface but contains critical multi-tenant anti-patterns that pass compilation and standard CI checks like:
+
+* **Distributed $N+1$ Database Leaks:** SOQL/DML queries nested three classes down within caller loops.
 * **Security Regressions:** Missing \`WITH USER_MODE\`, bypassing Field-Level Security (FLS) or tenant sharing models.
 * **Synthetic "Coverage Padding":** AI-generated unit tests with zero assertion logic (\`System.assert(true)\`), written purely to bypass the 75% deployment threshold.
 * **LWC Resource Leaks:** Unsubscribed Lightning Message Service (LMS) tokens and lingering DOM listeners causing browser memory decay.
 
-**ArchonDX** is an autonomous governance engine. Operating directly within Claude Code (CLI and VS Code), ArchonDX performs semantic, cross-file architectural audits on Apex and Lightning Web Components before code ever reaches a pull request.
-
+ArchonDX performs semantic, cross-file architectural audits on Apex and Lightning Web Components before code ever reaches a pull request or before a pull request is merged.
 
 ---
 
