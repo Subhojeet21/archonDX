@@ -6,7 +6,7 @@
 ![Runtime](https://img.shields.io/badge/Platform-Claude_Code_CLI_%7C_VS_Code-purple.svg)
 [![Audit Scope](https://img.shields.io/badge/Audit_Scope-Governor_Limits_%7C_FLS_%7C_AI_Integrity-critical.svg)]()
 [![Installs](https://img.shields.io/github/downloads/Subhojeet21/archonDX/total?color=blue&label=Installs&logo=github)](https://github.com/Subhojeet21/archonDX/releases)
-[![Installs](https://img.shields.io/badge/dynamic/json?url=https%3A%2F%2Fapi.github.com%2Frepos%2FSubhojeet21%2FarchonDX%2Freleases&query=%24..assets%5B%3F(%40.name%3D%3D'install.sh')%5D.download_count&label=Installs&color=blue&logo=github)](https://github.com/Subhojeet21/archonDX/releases)
+[![Installs](https://img.shields.io/github/downloads/Subhojeet21/archonDX/install.sh?label=Installs&color=blue&logo=github)](https://github.com/Subhojeet21/archonDX/releases)
 [![Reviews Run](https://img.shields.io/badge/dynamic/json?url=https%3A%2F%2Fapi.github.com%2Frepos%2FSubhojeet21%2FarchonDX%2Freleases&query=%24..assets%5B%3F(%40.name%3D%3D'version.txt')%5D.download_count&label=Reviews%20Run&color=purple&logo=claude)](https://github.com/Subhojeet21/archonDX/releases)
 
 
