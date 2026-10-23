@@ -1,0 +1,40 @@
+name: "💬 Architecture Feedback / False Positive"
+description: "Submit feedback, report a false positive rule trigger, or suggest new governance standards."
+title: "[Feedback]: "
+labels: ["community-feedback", "triage"]
+body:
+  - type: markdown
+    attributes:
+      value: |
+        Thanks for using ArchonDX! Use this form to suggest new governance rules or report false positives.
+  - type: dropdown
+    id: feedback-type
+    attributes:
+      label: Feedback Category
+      options:
+        - False Positive / Incorrect Gate Rejection
+        - New Governance Rule Suggestion (Apex / LWC / Security)
+        - Performance / Latency Feedback
+        - Other Feedback
+    validations:
+      required: true
+  - type: textarea
+    id: context
+    attributes:
+      label: Code Snippet / Context
+      description: Share the relevant Apex/LWC snippet (with sensitive data redacted) that triggered the finding.
+      render: apex
+  - type: textarea
+    id: expected-behavior
+    attributes:
+      label: Expected vs Actual Engine Verdict
+      description: What did ArchonDX flag, and what did you expect the architect verdict to be?
+    validations:
+      required: true
+  - type: input
+    id: engine-version
+    attributes:
+      label: ArchonDX Version
+      placeholder: "e.g., v1.0.4"
+    validations:
+      required: true
