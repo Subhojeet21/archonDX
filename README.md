@@ -6,7 +6,7 @@
 ![Runtime](https://img.shields.io/badge/Platform-Claude_Code_CLI_%7C_VS_Code_%7C_Cursor-purple.svg)
 [![Audit Scope](https://img.shields.io/badge/Audit_Scope-Governor_Limits_%7C_FLS_%7C_AI_Integrity-critical.svg)]()
 [![Installs](https://img.shields.io/endpoint?url=https%3A%2F%2Fraw.githubusercontent.com%2FSubhojeet21%2FarchonDX%2Fbadges%2Finstalls.json)](https://github.com/Subhojeet21/archonDX/releases)
-[![Reviews Run](https://img.shields.io/endpoint?url=https%3A%2F%2Fraw.githubusercontent.com%2FSubhojeet21%2FarchonDX%2Fbadges%2Freviews.json)](https://github.com/Subhojeet21/archonDX/releases)
+[![Reviews Run](https://img.shields.io/endpoint?url=https%3A%2F%2Fraw.githubusercontent.com%2FSubhojeet21%2FarchonDX%2Fbadges%2Freviews.json&cacheSeconds=300)](https://github.com/Subhojeet21/archonDX/releases)
 
 
 ---
