@@ -3,7 +3,7 @@
 
 ![License](https://img.shields.io/badge/License-MIT-blue.svg)
 ![Version](https://img.shields.io/badge/Version-1.0.4-emerald.svg)
-![Runtime](https://img.shields.io/badge/Platform-Claude_Code_CLI_%7C_VS_Code-purple.svg)
+![Runtime](https://img.shields.io/badge/Platform-Claude_Code_CLI_%7C_VS_Code_%7C_Cursor-purple.svg)
 [![Audit Scope](https://img.shields.io/badge/Audit_Scope-Governor_Limits_%7C_FLS_%7C_AI_Integrity-critical.svg)]()
 [![Installs](https://img.shields.io/endpoint?url=https%3A%2F%2Fraw.githubusercontent.com%2FSubhojeet21%2FarchonDX%2Fbadges%2Finstalls.json)](https://github.com/Subhojeet21/archonDX/releases)
 [![Reviews Run](https://img.shields.io/endpoint?url=https%3A%2F%2Fraw.githubusercontent.com%2FSubhojeet21%2FarchonDX%2Fbadges%2Freviews.json)](https://github.com/Subhojeet21/archonDX/releases)
@@ -13,7 +13,7 @@
 
 ## 💡 What is ArchonDX?
 
-**ArchonDX** is an autonomous architectural review engine designed specifically for enterprise **Salesforce DX** environments. Embedded natively into your local developer workflow via **Claude Code (CLI and VS Code extension**, it acts as a virtual core reviewer that audits staged diffs and pull requests before code is committed or merged.
+**ArchonDX** is an autonomous architectural review engine designed specifically for enterprise **Salesforce DX** environments. Embedded natively into your local developer workflow via **Claude Code (CLI and VS Code extension) & Cursor**, it acts as a virtual core reviewer that audits staged diffs and pull requests before code is committed or merged.
 
 Unlike traditional static linters (such as PMD or ESLint) that only inspect single files in isolation, ArchonDX evaluates **cross-class call graphs**, **runtime governor boundaries**, and **data access permissions** across your entire local codebase.
 
