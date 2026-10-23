@@ -2,7 +2,7 @@
 > **Autonomous Multi-Tenant Architecture & AI-Code Governance Engine for Salesforce DX projects**  
 
 ![License](https://img.shields.io/badge/License-MIT-blue.svg)
-![Version](https://img.shields.io/badge/Version-1.0.3-emerald.svg)
+![Version](https://img.shields.io/badge/Version-1.0.4-emerald.svg)
 ![Runtime](https://img.shields.io/badge/Platform-Claude_Code_CLI_%7C_VS_Code-purple.svg)
 [![Audit Scope](https://img.shields.io/badge/Audit_Scope-Governor_Limits_%7C_FLS_%7C_AI_Integrity-critical.svg)]()
 [![Installs](https://img.shields.io/endpoint?url=https%3A%2F%2Fraw.githubusercontent.com%2FSubhojeet21%2FarchonDX%2Fbadges%2Finstalls.json)](https://github.com/Subhojeet21/archonDX/releases)
