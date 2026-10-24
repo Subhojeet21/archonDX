@@ -137,6 +137,17 @@ Evaluate your feature branch diff against \`main\` before opening a pull request
 
 ---
 
+## 💬 Feedback & Rule Suggestions
+
+ArchonDX evolves directly from enterprise edge cases and community feedback. 
+
+- **Trigger via Terminal / IDE:** Type `/archon --feedback` inside your agent session.
+- **Report a False Positive:** Found a valid pattern incorrectly blocked by the gate? [Open False Positive Report](https://github.com/Subhojeet21/archonDX/issues/new?template=feedback.yml).
+- **Suggest an Architectural Rule:** Want support for custom frameworks, OmniStudio, or Data Cloud patterns? [Submit a Rule Proposal](https://github.com/Subhojeet21/archonDX/discussions/new?category=ideas).
+- **Discussions & Q&A:** Join the conversation on [GitHub Discussions](https://github.com/Subhojeet21/archonDX/discussions).
+
+---
+
 ## 📄 License & Attribution
 
 [MIT License](LICENSE) © Subhojeet Ghosh
